@@ -1,0 +1,164 @@
+game.StarterGui:SetCore("SendNotification", {
+    Title = "Game";
+    Text = "밥밥 부대 | 2433583525 | UI Library Bracket V3";
+    Duration = 10;
+    })
+game.StarterGui:SetCore("SendNotification", {
+    Title = "CunaHubV2";
+    Text = "Made by Cuna_Dev#0058 | Suka";
+    Duration = 10;
+    })
+local Config = {
+    WindowName = "Cuna",
+	Color = Color3.fromRGB(107, 50, 124),
+	Keybind = Enum.KeyCode.RightBracket
+	
+}
+
+
+local DiscordLib = loadstring(game:HttpGet"https://raw.githubusercontent.com/dawid-scripts/UI-Libs/main/discord%20lib.txt")()
+
+local win = DiscordLib:Window("Cuna HubV2 premium")
+
+local serv = win:Server("Nonsan Training Center", "http://www.roblox.com/asset/?id=6031075938")
+
+local btns = serv:Channel("player")
+
+btns:Button("Kill all", function()
+    if game.ReplicatedStorage:FindFirstChild("CarbonResource") then
+        for _,player in pairs(game.Players:GetPlayers()) do
+            if player ~= game.Players.LocalPlayer then
+                 game.ReplicatedStorage.CarbonResource.Events:GetChildren()[4]:FireServer(player.Character.Humanoid, 100, "Head", {'nil', 'Auth', 'nil', 'nil'})
+            end
+        end
+      else
+        print("Cuna")
+      end
+DiscordLib:Notification("Kill all", "Killed everyone!", "Okay!")
+end)
+
+btns:Seperator() --- 선
+
+btns:Button("esp", function()
+    loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/syuwqpw123/gamescriptcode/main/esp"))()
+    loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/syuwqpw123/gamescriptcode/main/UniversalSkeletonESP"))()
+end)
+
+btns:Button("aimlock", function()
+    loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/syuwqpw123/gamescriptcode/main/Aimlock"))()
+end)
+
+btns:Seperator()
+
+local tgls = serv:Channel("item")
+
+tgls:Button("btools", function()
+    local a=Instance.new("Tool")a.RequiresHandle=false;a.Name="Delete"local b=game.Players.LocalPlayer;a.Parent=b:WaitForChild("Backpack")local c=b:GetMouse()local d=false;local e=Instance.new("SelectionBox")e.Color3=Color3.new(0,0.6,0.6,6)e.Parent=b.PlayerGui;local c=b:GetMouse()local e=Instance.new("SelectionBox")e.Color3=Color3.new(0,0.6,0.6,6)e.Parent=b.PlayerGui;e.Name="derp"c.Move:connect(function()if d then local f=c.Target;if not f then e.Adornee=nil else if f:IsA("BasePart")then e.Adornee=f else e.Adornee=nil end end end end)a.Equipped:Connect(function()d=true end)a.Unequipped:Connect(function()e.Adornee=nil;d=false end)a.Activated:Connect(function()if e.Adornee then local g=Instance.new("Explosion")g.Parent=game.Workspace;g.Position=e.Adornee.Position;g.BlastPressure=0;local h=Instance.new("Sound")h.SoundId="http://www.roblox.com/asset/?id=315775189"h.Parent=game.Workspace;h:Play()e.Adornee:Destroy()e.Adornee=nil end end)
+    
+    
+    end)
+
+tgls:Button("gun", function()
+    for i, v in pairs(game.Players:GetPlayers()) do
+        if v.Backpack:FindFirstChild("ak-47") then
+            v.Backpack["ak-47"].Parent = game.Players.LocalPlayer.Backpack
+            break
+        elseif v.Character then
+            if v.Character:FindFirstChild("ak-47") then
+                v.Character["ak-47"].Parent = game.Players.LocalPlayer.Backpack
+                break
+            end
+        end
+    end
+    for i, v in pairs(game.Players:GetPlayers()) do
+        if v.Backpack:FindFirstChild("호루라기") then
+            v.Backpack["호루라기"].Parent = game.Players.LocalPlayer.Backpack
+            break
+        elseif v.Character then
+            if v.Character:FindFirstChild("호루라기") then
+                v.Character["호루라기"].Parent = game.Players.LocalPlayer.Backpack
+                break
+            end
+        end
+    end
+    for i, v in pairs(game.Players:GetPlayers()) do
+        if v.Backpack:FindFirstChild("Cuffs") then
+            v.Backpack["Cuffs"].Parent = game.Players.LocalPlayer.Backpack
+            break
+        elseif v.Character then
+            if v.Character:FindFirstChild("Cuffs") then
+                v.Character["Cuffs"].Parent = game.Players.LocalPlayer.Backpack
+                break
+            end
+        end
+    end
+    DiscordLib:Notification("give me gun", "A gun has been provided!", "Okay!")
+end)
+
+local sldrs = serv:Channel("me")
+
+local sldr = sldrs:Slider("speed", 0, 1000, 400, function(v)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = v
+end)
+
+local sldr = sldrs:Slider("Jump", 0, 1000, 400, function(v)
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = v
+end)
+
+------------------------------------------
+
+local drops = serv:Channel("TP")
+
+
+local drop = drops:Dropdown("Pick TP",{"Citizen Spawn Locations","coffee shop","karaoke","Mom's Touch","meat shop","gate1","gate2","?","sniper","sniper2","Playground","shooting range"}, function(v)
+    if v == "밥밥 부대 입구 " then
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(380.9991149902344, -19.613059997558594, 294.0329284667969)
+	
+    
+    end
+end)
+
+------------------------------------------------------
+
+local clrs = serv:Channel("Client")
+
+clrs:Button("fullbright", function()
+    game:GetService("Lighting").Brightness = 2
+    game:GetService("Lighting").ClockTime = 14
+    game:GetService("Lighting").FogEnd = 100000
+    game:GetService("Lighting").GlobalShadows = false
+    game:GetService("Lighting").OutdoorAmbient = Color3.fromRGB(128, 128, 128)
+end)
+
+clrs:Seperator()
+
+clrs:Button("afternoon", function()
+    game:GetService("Lighting").ClockTime = 14
+end)
+
+clrs:Button("night", function()
+    game:GetService("Lighting").ClockTime = 0
+end)
+
+-----------------------------------------------
+
+local seerx = serv:Channel("server")
+
+seerx:Button("Rejoin", function()
+local tpservice= game:GetService("TeleportService")
+local plr = game.Players.LocalPlayer
+
+tpservice:Teleport(game.PlaceId, plr)
+end)
+
+--------------------------------------------
+
+local lbls = serv:Channel("credit")
+
+lbls:Label("by: Cuna_Dev#0058 | suka")
+
+lbls:Label("owner: Cuna_Dev#0058")
+
+lbls:Label("coowner: suka")
+
+lbls:Label("suka: give gun Script 확장을 해주셨음")
